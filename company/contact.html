@@ -1,0 +1,182 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="../job_portal.css">
+      <link rel="stylesheet" href="company.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="../job_portal.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid" id="navbar">
+    
+      <a class="navbar-brand" href="#">
+        <img src="../logo.avif" alt="Logo" width="90" height="100" class="rounded-circle">
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto mb-2" id="menu">
+          <li class="nav-item">
+            <a class="nav-link active" href="../job_portal.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../job_portal.html#job">Browse Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Contact</a>
+          </li>
+          <li class="nav-item" id="userSection" style="display: none;">
+          <span class="nav-link" id="userName"></span>
+        </li>
+        <li class="nav-item" id="logoutSection" style="display: none;">
+        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+        </li>
+        <li class="nav-item" id="loginSection">
+        <a class="nav-link" href="../login.html">Login</a>
+        </li>
+        <li class="nav-item" id="signupSection">
+        <a class="nav-link" href="../signup.html">Sign Up</a>
+        </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h1 class="text-center">Contact Us</h1>
+  <div class="row align-items-center">
+
+    <div class="col-md-6 col-12">
+      <img src="contact.jpg" alt="contact" class="img-fluid rounded">
+    </div>
+
+    <div class="col-md-6 col-12">
+      <form onsubmit="msg(event)">
+
+        <div class="form-floating mb-4">
+          <input type="text" class="form-control" id="c_name" placeholder="Enter username" required>
+          <label class="fw-bold">Name</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="email" class="form-control" id="c_email" placeholder="name@example.com" required>
+          <label class="fw-bold">Email Address</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <textarea id="c_message" class="form-control" placeholder="Leave your message here" style="height: 150px;" required></textarea>
+          <label class="fw-bold">Message</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" onclick="checkLogin(event)">
+    Submit
+</button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="footer mt-5">
+ <div class="referrence">
+  <div>
+    <img src="../logo.avif" alt="Logo" width="90" height="100" class="rounded-circle">
+    <p>Search Your Desire Job</p>
+  </div>
+  <div class="bxl">
+    <a href="#"><img src="../bxl-facebook-circle.svg" width="50px"></a>
+    <a href="#"><img src="../bxl-instagram-alt.svg" width="50px"></a>
+    <a href="#"><img src="../bxl-behance.svg" width="50px"></a>
+    <a href="#"><img src="../bxl-twitter.svg" width="50px"></a>
+  </div>
+
+</div>
+
+<div class="bottom">
+    <div>
+    <h3>Project</h3>
+    <a href="#">Changelog</a>
+    <a href="#">Status</a>
+    <a href="#">Licence</a>
+    <a href="#">All Version</a>
+    </div>
+
+    <div>
+    <h3>Community</h3>
+    <a href="#">GitHub</a>
+    <a href="#">Issues</a>
+    <a href="#">Project</a>
+    <a href="#">Twitter</a>
+    </div>
+
+    <div>
+    <h3>Help</h3>
+    <a href="support.html">Support</a>
+    <a href="#">Troubleshooting</a>
+    <a href="#">Contact Us</a>
+    </div>
+
+    <div>
+    <h3>Others</h3>
+    <a href="TermsOfServices.html">Terms Of Services</a>
+    <a href="policy.html">Privacy Policy</a>
+    <a href="Licence.html">Licence</a>
+    </div>
+  </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("UscPmZpy_tu2S9RU0");  
+
+  function msg(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("c_name").value.trim();
+    const email = document.getElementById("c_email").value.trim();
+    const message = document.getElementById("c_message").value.trim();
+
+    if (name.toLowerCase() === "null" ||name === "" || !/^[A-Za-z ]+$/.test(name)) {
+      alert("Enter a valid name");
+      return; 
+    }
+
+    const params = {
+      user_name: name,
+      user_email: email,
+      message: message
+    };
+
+    emailjs.send("service_xhtnsxs", "template_c00tute", params)
+      .then(() => {
+        alert("Message sent successfully");
+        e.target.reset();
+      })
+      .catch((err) => {
+        alert("Failed to send");
+        console.error(err);
+      });
+  }
+</script>
+
+</body>
+</html>

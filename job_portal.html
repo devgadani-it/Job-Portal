@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="job_portal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="job_portal.js"></script>
+    
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid" id="navbar">
+
+    <a class="navbar-brand" href="#">
+      <img src="logo.avif" alt="Logo" width="90" height="100" class="rounded-circle">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto mb-2" id="menu">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#job">Browse Job</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="company/contact.html">Contact</a>
+        </li>
+        <li class="nav-item" id="userSection" style="display: none;">
+          <span class="nav-link" id="userName"></span>
+        </li>
+        <li class="nav-item" id="logoutSection" style="display: none;">
+        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+        </li>
+        <li class="nav-item" id="loginSection">
+        <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item" id="signupSection">
+        <a class="nav-link" href="signup.html">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container pt-5">
+   <div class="row  align-items-center" >
+      
+    <div class="col-md-6 col-12" >
+    <h1>Opportunities Don't Wait. Neither Should You.</h1>
+     <p>Our intelligent job matching system recommends jobs based on your profile, skills, and preferences.</p>
+     <p>This ensures better accuracy and saves time by showing only the most relevant opportunities, making your job search more effective.</p>
+   <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search your job here..">
+    <a href="#job">
+        <button id="login" class="search-btn" onclick="searchJob()">Search</button>
+    </a>
+</div>
+    </div>
+          
+     <div class="col-md-6 col-12 ">
+      <img src="home.jpg" class="img-fluid rounded text-center"  alt="image">
+     </div>
+
+   </div>
+</div>
+
+<div class="container">
+  <div class="mt-5 ">
+    <h2>Work Smarter. Hire Faster.</h2>
+    <p>Most viewed , popular and trusted  </p>
+  </div>
+</div>
+
+<div class="container pt-5 icon text-center">
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <i class="bi bi-briefcase-fill fs-1"></i>
+      <h3 class="mt-3">Create Job Listing</h3>
+      <p>Post detailed job openings including role, skills, salary, and location to attract the right candidates.</p>
+    </div>
+  
+    <div class="col-md-4">
+      <i class="bi bi-people-fill fs-1"></i>
+      <h3 class="mt-3">Manage Applicants</h3>
+      <p>Review applications, shortlist candidates, and track hiring progress all in one place.</p>
+    </div> 
+
+    <div class="col-md-4">
+      <i class="bi bi-check-circle-fill fs-1"></i>
+      <h3 class="mt-3">Hire with Confidence</h3>
+      <p>Connect with top talent, conduct interviews, and make faster, smarter hiring decisions.</p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container mt-5" id="job">
+  <h2>Jobs in demand</h2>
+  <p>Find your Best..</p>
+
+  <nav>
+  <ul class="pagination pagination-lg justify-content-center">
+  <li class="page-item ">
+    <a class="page-link" href="#job" onclick="filterJobs('All')">Recent Jobs</a>
+  </li>
+  <li class="page-item ">
+    <a class="page-link" href="#job" onclick="filterJobs('Internship')">Internship</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#job" onclick="filterJobs('Full Time')">Full Time</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#job" onclick="filterJobs('Part Time')">Part Time</a>
+  </li>   
+  </ul>
+  
+  </nav>
+</div>
+
+<div class="container mt-5" >
+  <a href="company/google.html" class="company_details ">
+  <div class="company">
+  <img src="google_logo.png" alt="logo">
+  <h3>Web Developer</h3>
+  <p>$900-1200/m</p>
+  <span>Full Time</span>
+  </div>
+  </a>
+
+  <a href="company/uber.html" class="company_details ">
+  <div class="company">
+  <img src="uber_logo.png" alt="logo">
+  <h3>Customer Services</h3>
+  <p>$600-800/m</p>
+  <span>Part Time</span>
+  </div>
+  </a>
+  
+  <a href="company/internshala.html" class="company_details ">
+  <div class="company">
+  <img src="internshala_og_image.jpg" alt="logo">
+  <h3>Freshers</h3>
+  <p>$150-300/m</p>
+  <span>Internship</span>
+  </div>
+  </a>
+
+  <a href="company/apple.html" class="company_details ">
+  <div class="company">
+  <img src="apple_logo.png" alt="logo">
+  <h3>Backend Developer</h3>
+  <p>$1200-1800/m</p>
+  <span>Full Time</span>
+  </div>
+  </a>
+  
+   <a href="company/facebook.html" class="company_details ">
+  <div class="company">
+  <img src="Facebook-Logo.png" alt="logo">
+  <h3>FullStack Developer</h3>
+  <p>$1100-1600/m</p>
+  <span>Full Time</span>
+  </div>
+  </a>
+
+  <a href="company/wipro.html" class="company_details">
+  <div class="company">
+  <img src="wipro.jpg" alt="logo">
+  <h3>Freshers</h3>
+  <p>$100-200/m</p>
+  <span>Internship</span>
+  </div>
+  </a>
+
+  <a href="company/zepto.html" class="company_details">
+  <div class="company">
+  <img src="zepto.png" alt="logo">
+  <h3>Operations Internt</h3>
+  <p>$600-800/m</p>
+  <span>Part Time</span>
+  </div>
+  </a>
+
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Trusted By The World's Best</h2>
+
+  <div class="trust">
+    <div class="trust-track">
+
+      <img src="Microsoft_logo.svg.png" alt="Microsoft">
+      <img src="amazon-logo.jpg" alt="Amazon">
+      <img src="samsung-logo-samsung-icon-transparent-free-png.webp" alt="Samsung">
+      <img src="Walmart-Logo-New.png" alt="Walmart">
+      <img src="Adobe-logo.png" alt="Adobe">
+      <img src="google_logo.png" alt="Google">
+      <img src="apple_logo.png" alt="Apple">
+      <img src="meta.png" alt="Meta">
+      <img src="Ibm.png" alt="IBM">
+
+      <img src="Microsoft_logo.svg.png" alt="Microsoft">
+      <img src="amazon-logo.jpg" alt="Amazon">
+      <img src="samsung-logo-samsung-icon-transparent-free-png.webp" alt="Samsung">
+      <img src="Walmart-Logo-New.png" alt="Walmart">
+      <img src="Adobe-logo.png" alt="Adobe">
+      <img src="google_logo.png" alt="Google">
+      <img src="apple_logo.png" alt="Apple">
+      <img src="meta.png" alt="Meta">
+      <img src="Ibm.png" alt="IBM">
+    </div>
+  </div>
+</div>
+
+
+  
+
+<div class="container-fluid">
+    <div class="row text-center mt-5">
+      <div class="col-md-3">
+         <div class="card p-3"><h4>500+</h4><p>Jobs</p></div>
+       </div>
+       <div class="col-md-3">
+          <div class="card p-3"><h4>300+</h4><p>Companies</p></div>
+       </div>
+       <div class="col-md-3">
+          <div class="card p-3"><h4>1200+</h4><p>Job Seekers</p></div>
+       </div>
+       <div class="col-md-3">
+          <div class="card p-3"><h4>95%</h4><p>Success</p></div>
+        </div>  
+    </div>
+</div>
+
+<footer class="footer mt-5">
+<div class="referrence">
+    <div>
+      <img src="logo.avif" alt="Logo" width="90" height="100" class="rounded-circle">
+      <p>Search Your Desire Job</p>
+    </div>
+    <div>
+      <a href="#"><img src="bxl-facebook-circle.svg" width="50px"></a>
+      <a href="#"><img src="bxl-instagram-alt.svg" width="50px"></a>
+      <a href="#"><img src="bxl-behance.svg" width="50px"></a>
+      <a href="#"><img src="bxl-twitter.svg" width="50px"></a>
+    </div>
+</div>
+
+<div class="bottom">
+    <div>
+    <h3>Project</h3>
+    <a href="#">Changelog</a>
+    <a href="#">Status</a>
+    <a href="#">Licence</a>
+    <a href="#">All Version</a>
+    </div>
+
+    <div>
+    <h3>Community</h3>
+    <a href="#">GitHub</a>
+    <a href="#">Issues</a>
+    <a href="#">Project</a>
+    <a href="#">Twitter</a>
+    </div>
+
+    <div>
+    <h3>Help</h3>
+    <a href="company/support.html">Support</a>
+    <a href="#">Troubleshooting</a>
+    <a href="company/contact.html">Contact Us</a>
+    </div>
+
+    <div>
+    <h3>Others</h3>
+    <a href="company/TermsOfServices.html">Terms Of Services</a>
+    <a href="company/policy.html">Privacy Policy</a>
+    <a href="company/Licence.html">Licence</a>
+    </div>
+</div>
+
+</footer>
+
+
+</body>
+</html>
